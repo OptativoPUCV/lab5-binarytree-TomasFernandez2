@@ -37,3 +37,26 @@ Thu 09 May 2024 07:05:11 PM UTC:
  tests:  15|4
 total_score: 25/70
 deb34eb
+Thu 09 May 2024 07:06:44 PM UTC: 
+ treemap.c | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:113:9: error: implicit declaration of function ‘transplant’ [-Werror=implicit-function-declaration]
+  113 |         transplant(tree, node, node->right);
+      |         ^~~~~~~~~~
+treemap.c:122:13: error: ‘TreeNode’ has no member named ‘key’
+  122 |         node->key = successor->key;
+      |             ^~
+treemap.c:122:30: error: ‘TreeNode’ has no member named ‘key’
+  122 |         node->key = successor->key;
+      |                              ^~
+treemap.c:123:13: error: ‘TreeNode’ has no member named ‘value’
+  123 |         node->value = successor->value;
+      |             ^~
+treemap.c:123:32: error: ‘TreeNode’ has no member named ‘value’
+  123 |         node->value = successor->value;
+      |                                ^~
+cc1: all warnings being treated as errors
+Compilation failed
+21dae24
