@@ -78,3 +78,9 @@ Thu 09 May 2024 09:13:20 PM UTC:
  tests:  20|2
 total_score: 45/70
 7db725b
+Thu 09 May 2024 09:26:24 PM UTC: 
+ treemap.c | 76 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 46 insertions(+), 30 deletions(-)
+ tests:  20|2
+total_score: 45/70
+3b482b7
