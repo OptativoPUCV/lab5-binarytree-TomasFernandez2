@@ -169,18 +169,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
 Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode* aux = tree->root;
     TreeNode* ub_Node = NULL;
-    while(aux!=NULL){
-        if(tree->lower_than(aux->pair->key,key)){
-            ub_Node = aux;
-            aux = aux->right;
-        }
-        else
-            aux = aux->left;
-    }
-    if(ub_Node==NULL) 
-        return NULL;
-    tree->current = ub_Node;
-    return ub_Node->pair;
+    
 }
 
 
