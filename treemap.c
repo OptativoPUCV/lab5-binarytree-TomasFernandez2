@@ -167,9 +167,25 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-   /* TreeNode* aux = tree->root;
-    TreeNode* ub_Node = NULL;*/
-    return NULL;
+    TreeNode* aux = tree->root;
+    TreeNode* ub_Node = NULL;
+    
+    while(aux!=NULL){
+        if(is_equal(tree,aux->pair->key,key))
+            return aux->pair;
+        else{
+            if(tree->lower_than(aux->pair->key,key)){
+                ub_Node = aux;
+                aux = aux->right;
+            }
+            else
+                aux = aux->left;
+        }
+    }
+    if(ub_Node!=NULL)
+        return ub_Node->pair;
+    else
+        return NULL;
 }
 
 
