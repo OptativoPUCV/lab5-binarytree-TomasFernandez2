@@ -167,9 +167,9 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    TreeNode* aux = tree->root;
-    TreeNode* ub_Node = NULL;
-    
+   /* TreeNode* aux = tree->root;
+    TreeNode* ub_Node = NULL;*/
+    return NULL;
 }
 
 
