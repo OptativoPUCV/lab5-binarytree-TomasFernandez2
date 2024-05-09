@@ -5,6 +5,17 @@
 
 typedef struct TreeNode TreeNode;
 
+/*typedef struct Pair {
+    void * key;
+    void * value;
+} Pair;*/
+
+/* definimos una función para comparar claves de tipo int
+int lower_than_int(void* key1, void* key2){
+    int k1 = *((int*) (key1));
+    int k2 = *((int*) (key2));
+    return k1<k2;
+}*/
 
 struct TreeNode {
     Pair* pair;
@@ -37,9 +48,11 @@ TreeNode * createTreeNode(void* key, void * value) {
 }
 
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
-
-    //new->lower_than = lower_than;
-    return NULL;
+    TreeMap * new = (TreeMap *)malloc(sizeof(TreeMap));
+    new->root = NULL;
+    new->current = NULL;
+    new->lower_than = lower_than;
+    return new;
 }
 
 
@@ -70,6 +83,17 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
+    TreeNode* aux = tree->root;
+    while(aux!=NULL){
+        if(is_equal(tree,aux->pair->key,key)){
+            tree->current = aux;
+            return aux->pair;
+        }
+        else if(tree->lower_than(aux->pair->key,key)) 
+            aux = aux->right;
+        else
+            aux = aux->left;
+    }
     return NULL;
 }
 

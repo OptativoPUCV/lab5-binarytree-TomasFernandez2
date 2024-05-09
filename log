@@ -1,0 +1,9 @@
+Thu 09 May 2024 06:36:14 PM UTC: 
+ treemap.c | 26 +++++++++++++++++++++++---
+ 1 file changed, 23 insertions(+), 3 deletions(-)
+Thu 09 May 2024 06:50:50 PM UTC: 
+ treemap.c | 30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
+ tests:  11|6
+total_score: 15/70
+09ca15a
