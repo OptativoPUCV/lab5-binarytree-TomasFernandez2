@@ -57,22 +57,24 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap* tree, void* key, void* value) {
-    if (tree == NULL) return; // Handle the case when tree is NULL
-    TreeNode* newNode = createTreeNode(key, value); // Assume you have createTreeNode function
-    if (newNode == NULL) return; // Handle memory allocation failure
+    if (tree == NULL) return; // Verificar si el árbol es nulo
+    if (searchTreeMap(tree, key) != NULL) return; // Verificar si la clave ya existe
 
+    TreeNode* newNode = createTreeNode(key, value); // Crear un nuevo nodo
+    if (newNode == NULL) return; // Manejar fallo de asignación de memoria
+
+    // Realizar una búsqueda para encontrar la posición de inserción
     TreeNode* aux = tree->root;
     TreeNode* parent = NULL;
     while (aux != NULL) {
         parent = aux;
         if (tree->lower_than(key, aux->pair->key))
             aux = aux->left;
-        else if (tree->lower_than(aux->pair->key, key))
-            aux = aux->right;
         else
-            return; // Key already exists, do nothing (you may want to update value here)
+            aux = aux->right;
     }
 
+    // Enlazar el nuevo nodo al árbol
     newNode->parent = parent;
     if (parent == NULL)
         tree->root = newNode;
@@ -80,8 +82,10 @@ void insertTreeMap(TreeMap* tree, void* key, void* value) {
         parent->left = newNode;
     else
         parent->right = newNode;
-}
 
+    // Hacer que current apunte al nuevo nodo
+    tree->current = newNode;
+}
 
 TreeNode * minimum(TreeNode * x){
 
