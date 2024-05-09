@@ -56,24 +56,32 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 }
 
 
-void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree == NULL || tree->root == NULL) return;
-    TreeNode * newNode = createTreeNode(key, value);
-    TreeNode * aux = tree->root;
-    TreeNode * parent = NULL;
-    while (aux != NULL){
+void insertTreeMap(TreeMap* tree, void* key, void* value) {
+    if (tree == NULL) return; // Handle the case when tree is NULL
+    TreeNode* newNode = createTreeNode(key, value); // Assume you have createTreeNode function
+    if (newNode == NULL) return; // Handle memory allocation failure
+
+    TreeNode* aux = tree->root;
+    TreeNode* parent = NULL;
+    while (aux != NULL) {
         parent = aux;
         if (tree->lower_than(key, aux->pair->key))
             aux = aux->left;
         else if (tree->lower_than(aux->pair->key, key))
             aux = aux->right;
-        else return;
+        else
+            return; // Key already exists, do nothing (you may want to update value here)
     }
+
     newNode->parent = parent;
     if (parent == NULL)
         tree->root = newNode;
-    
+    else if (tree->lower_than(key, parent->pair->key))
+        parent->left = newNode;
+    else
+        parent->right = newNode;
 }
+
 
 TreeNode * minimum(TreeNode * x){
 
