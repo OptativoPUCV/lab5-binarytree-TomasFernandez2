@@ -137,3 +137,17 @@ Thu 09 May 2024 10:17:15 PM UTC:
  tests:  25|1
 total_score: 60/70
 9272966
+Sat 11 May 2024 11:42:36 PM UTC: 
+ treemap.c | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccxZktFJ.o: in function `ub_test1':
+test.c:(.text+0x1183): undefined reference to `upperBound'
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccxZktFJ.o: in function `ub_test2':
+test.c:(.text+0x1263): undefined reference to `upperBound'
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccxZktFJ.o: in function `ub_test3':
+test.c:(.text+0x1363): undefined reference to `upperBound'
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/ccxZktFJ.o: in function `ub_test4':
+test.c:(.text+0x1463): undefined reference to `upperBound'
+collect2: error: ld returned 1 exit status
+Compilation failed
+2127c34
